@@ -9,7 +9,9 @@ module BradHelper
 
   def help_me_brad(key, opts = {})
     if (content = t(key, default: '')).present?
-      button(key, opts) if opts.delete(:help_button).present?
+      if opts.delete(:help_button).present?
+        button(key, opts)
+      end
       contents(key, content)
     end
   end
