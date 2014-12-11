@@ -1,9 +1,5 @@
 # Brad
 
-![image](http://upload.wikimedia.org/wikipedia/en/d/df/Roy_Lichtenstein_Drowning_Girl.jpg)
-
-But she'd better have called Brad.
-
 Brad is a very simple Gem for Rails that uses [Bootstrap3](http://getbootstrap.com/) Popovers to add contextual help to any document element.
 
 It can also generate an help button if needed.
