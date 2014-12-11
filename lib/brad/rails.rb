@@ -1,8 +1,6 @@
-require "brad/rails/version"
+require "brad/version"
 
 module Brad
-  module Rails
-    class Engine < ::Rails::Engine
-    end
+  class Engine < ::Rails::Engine
   end
 end

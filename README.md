@@ -38,15 +38,15 @@ this line renders the hidden popover contents div
 then, in the triggering element
 
 ```ruby
-data: brad_data_options(key, foo: 'bar')
+data: brad_data_options(key, derp: 'herp')
 ```
 
 the `brad_data_options(key, opts = {})` helper method generates all the data options needed to transform any element into a trigger for Brad popovers
 
-  ##### Example
+##### Example
 
 ```ruby
-text_field_tag 'this_field_requires_some_explanations', data: brad_data_options('brad.help_key_foo')
+text_field_tag 'this_field_requires_some_explanations', data: brad_data_options('foo.help_key_bar')
 ```
 
 ### Language file structure
@@ -54,8 +54,8 @@ text_field_tag 'this_field_requires_some_explanations', data: brad_data_options(
 
 
 ```yaml
-brad:
-  help_key_foo:
+foo:
+  help_key_bar:
     title_html: The title key must be title_html
     text_html: The text key must be text_html and, as the title, it can contain <em>html!</em>
 ```
@@ -80,5 +80,5 @@ and the default popover template is
 ##### Example
 
 ```ruby
-help_me_brad('brad.help_key_foo', trigger: "click", placement: "bottom", animation: "false")
+help_me_brad('foo.help_key_bar', trigger: "click", placement: "bottom", animation: "false")
 ```

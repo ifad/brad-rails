@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'brad/rails/version'
+require 'brad/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "brad-rails"
-  spec.version       = Brad::Rails::VERSION
+  spec.version       = Brad::VERSION
   spec.authors     = ["Stefano Guglielmetti"]
   spec.email       = ["s.guglielmetti@ifad.org"]
   spec.summary     = %q{I'd rather sink than call Brad for help!}
@@ -23,4 +23,5 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency     'haml',     ['>= 3.1', '< 5.0']
   spec.add_runtime_dependency     'i18n'
+  spec.add_runtime_dependency     'less-rails'
 end
