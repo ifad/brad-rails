@@ -25,9 +25,10 @@ module BradHelper
     end
 
     def button(key, opts)
-      haml_tag("a", {role: "button", href: "#", data: brad_data_options(key, opts.fetch(:data, {})), class: opts.fetch(:class, "help-trigger")}) do
-        if b = opts.delete(:button_html).presence
-          haml_concat button_html
+      b = opts.delete(:button_html).presence
+      haml_tag("a", {role: "button", href: "#", data: brad_data_options(key, opts), class: opts.fetch(:class, "help-trigger")}) do
+        if b
+          haml_concat b
         else
           haml_tag :i, '', class: 'fa fa-question-circle fa-lg text-info'
         end
