@@ -9,11 +9,13 @@ module BradHelper
 
   def help_me_brad(key, opts = {})
     if (content = t(key, default: '')).present?
-      help_button = opts.delete(:help_button)
-
-      button(key, opts) if help_button
+      button(key, opts) if opts.delete(:help_button).present?
       contents(key, content)
     end
+  end
+
+  def brad_data_options(key, data_opts = {})
+    DEFAULT_OPTIONS.merge(data_opts).merge({target: "##{id_for(key)}"})
   end
 
   private
@@ -22,12 +24,8 @@ module BradHelper
       key.hash
     end
 
-    def data_options(key, data_opts = {})
-      DEFAULT_OPTIONS.merge(data_opts).merge({target: "##{id_for(key)}"})
-    end
-
     def button(key, opts)
-      haml_tag("a", {role: "button", href: "#", data: data_options(key, opts.fetch(:data, {})), class: opts.fetch(:class, "help-trigger")}) do
+      haml_tag("a", {role: "button", href: "#", data: brad_data_options(key, opts.fetch(:data, {})), class: opts.fetch(:class, "help-trigger")}) do
         if b = opts.delete(:button_html).presence
           haml_concat button_html
         else
