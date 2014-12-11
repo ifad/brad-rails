@@ -9,9 +9,7 @@ module BradHelper
 
   def help_me_brad(key, opts = {})
     if (content = t(key, default: '')).present?
-      if opts.delete(:help_button).present?
-        button(key, opts)
-      end
+      button(key, opts) if opts.delete(:help_button).present?
       contents(key, content)
     end
   end
@@ -27,10 +25,11 @@ module BradHelper
     end
 
     def button(key, opts)
-      b = opts.delete(:button_html).presence
+      button_html = opts.delete(:button_html).presence
+
       haml_tag("a", {role: "button", href: "#", data: brad_data_options(key, opts), class: opts.fetch(:class, "help-trigger")}) do
-        if b
-          haml_concat b
+        if button_html
+          haml_concat button_html
         else
           haml_tag :i, '', class: 'fa fa-question-circle fa-lg text-info'
         end
